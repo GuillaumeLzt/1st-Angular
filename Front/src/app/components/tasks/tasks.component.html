@@ -1,0 +1,10 @@
+<app-add-task (onAddTask)="addTask($event)"></app-add-task>
+
+<div *ngIf="successMsg" class="alert" role="alert">
+    <strong>{{successMsg}}</strong>
+</div>
+<app-task-item
+    *ngFor="let task of readData" 
+    [task]="task" 
+    (onDeleteTask)="deleteTask(task.id)" (onToggleReminder)="toggleReminder(task)">
+</app-task-item>
